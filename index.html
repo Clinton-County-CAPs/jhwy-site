@@ -42,7 +42,7 @@
         }
 
         video {
-            max-width: 1535px;
+            max-width: 100%;
             max-height: 371px;
             width: 100%;
             height: 100%;
@@ -79,7 +79,7 @@
 
         .dropdown-container {
             display: flex;
-            flex-direction: column; /* Changed to column for stacking */
+            flex-direction: column; /* Stacking sections */
             padding: 40px 20px;
             background-color: #f5f5f5;
         }
@@ -87,9 +87,16 @@
         .section {
             cursor: pointer;
             display: flex;
-            align-items: center; /* Center items vertically */
+            flex-direction: column; /* Stack title and arrow */
             position: relative;
             padding: 10px 0; /* Space between sections */
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center; /* Center items vertically */
+            justify-content: space-between; /* Space between title and arrow */
+            width: 100%; /* Ensure full width */
         }
 
         .section h2 {
@@ -112,10 +119,12 @@
             line-height: 1.6;
             color: #0a0707;
             padding-left: 20px; /* Indentation for dropdown content */
+            margin-top: 10px; /* Space above dropdown content */
         }
 
         .content.show {
             display: block; /* Show content when toggled */
+            color: #0a0707;
         }
 
         footer {
@@ -139,15 +148,20 @@
             h2 {
                 font-size: 2em;
             }
+            .section h2 {
+                font-size: 1.8em; /* Smaller title on mobile */
+            }
+            .arrow {
+                font-size: 1.2em; /* Smaller arrow on mobile */
+            }
             .section p {
-                font-size: 1.2em;
+                font-size: 1.2em; /* Adjust font size for smaller screens */
             }
         }
     </style>
     <script>
         function toggleContent(sectionId) {
             const content = document.getElementById(sectionId);
-            const arrow = content.previousElementSibling.querySelector('.arrow');
             content.classList.toggle('show');
             content.style.display = content.classList.contains('show') ? "block" : "none";
         }
@@ -174,8 +188,10 @@
 
     <div class="dropdown-container">
         <section class="section" onclick="toggleContent('historyContent')">
-            <h2>Highway History</h2>
-            <span class="arrow">▼</span>
+            <div class="section-title">
+                <h2>Highway History</h2>
+                <span class="arrow">▼</span>
+            </div>
             <div class="content" id="historyContent">
                 <p>The Jefferson Highway is part of the history of the automobile travel in the United States. The Jefferson Highway Association was formed in 1915 to help construct ‘good roads’ creating the first north/south international highway. The Jefferson Highway traveled from Winnipeg, Canada to New Orleans, LA and was nicknamed the Pine to Palm Highway. City leaders, knowing access to this highway would potentially bring increased business and tourism, campaigned for the Jefferson Highway Association to include their city. Plattsburg, midway along the route, was chosen with construction beginning in 1916. The route of the Jefferson Highway travels down Main Street past Tinnen Town Hall’s west wall. Many towns along the Jefferson Highway are painting murals to honor the historic highway.</p>
                 <p>The beginning of Plattsburg’s mural project is due to the Clinton County Historical Society/Plattsburg initiative. The desire to see the highway honored was championed by Terry Wood and his wife, Lynn, members of the Jefferson Highway Association. The president of the Historical Clinton County Society, Lesli Shaver, along with her board, embraced the idea. This led to their joining forces with the Plattsburg Community Association, Somyia Finley, chair, and the Community Betterment and Arts Council, Charnette Norton, chair.</p>
@@ -183,8 +199,10 @@
         </section>
 
         <section class="section" onclick="toggleContent('artistContent')">
-            <h2>Mural Artist</h2>
-            <span class="arrow">▼</span>
+            <div class="section-title">
+                <h2>Mural Artist</h2>
+                <span class="arrow">▼</span>
+            </div>
             <div class="content" id="artistContent">
                 <p>Daniel Bartle received his Bachelor of Fine Art in painting from the Kansas City Art Institute.</p>
                 <p>Daniel Bartle was selected due to his mural idea and reputation as an artist. He is a visual artist based in Kansas City, where he has been practicing art professionally for more than 20 years. From architectural watercolor illustration to large-scale mural painting, Bartle’s portfolio reflects an ever-striving approach to a life-long passion.</p>
