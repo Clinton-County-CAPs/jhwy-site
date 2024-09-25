@@ -97,14 +97,16 @@
         .section {
             cursor: pointer;
             display: flex;
-            justify-content: space-between; /* Space between title and arrow */
+            align-items: center; /* Center items vertically */
             position: relative;
             padding: 10px 0;
+            justify-content: space-between; /* Space between title and arrow */
         }
 
         .section-title {
             display: flex;
             align-items: center;
+            width: 100%; /* Allow full width for title */
         }
 
         .section h2 {
@@ -164,7 +166,7 @@
         /* New styles for right alignment */
         .right-align {
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-start; /* Align left */
             align-items: center;
             margin-top: 20px; /* Add space above sections */
         }
