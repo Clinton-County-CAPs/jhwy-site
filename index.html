@@ -97,7 +97,7 @@
         .section {
             cursor: pointer;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between; /* Space between title and arrow */
             position: relative;
             padding: 10px 0;
         }
@@ -105,8 +105,6 @@
         .section-title {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            width: 100%;
         }
 
         .section h2 {
@@ -133,6 +131,8 @@
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s ease-out;
+            width: calc(100% - 40px); /* Prevent overflow */
+            box-sizing: border-box; /* Ensure padding is included in width */
         }
 
         .content.show {
@@ -161,6 +161,14 @@
             color: #0a0707;
         }
 
+        /* New styles for right alignment */
+        .right-align {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-top: 20px; /* Add space above sections */
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5em;
@@ -180,8 +188,9 @@
         }
     </style>
     <script>
-        function toggleContent(sectionId) {
+        function toggleContent(sectionId, arrow) {
             const content = document.getElementById(sectionId);
+            const arrowElement = document.getElementById(arrow);
             content.classList.toggle('show');
 
             if (content.classList.contains('show')) {
@@ -189,11 +198,13 @@
                 requestAnimationFrame(() => {
                     content.style.maxHeight = content.scrollHeight + "px"; // Set max height to content height
                 });
+                arrowElement.innerHTML = "▲"; // Change to up arrow
             } else {
                 content.style.maxHeight = "0"; // Collapse back to height 0
                 setTimeout(() => {
                     content.style.display = "none"; // Hide block after transition
                 }, 300); // Match the duration of the transition
+                arrowElement.innerHTML = "▼"; // Change back to down arrow
             }
         }
     </script>
@@ -220,10 +231,10 @@
     <div class="dropdown-container">
         <div class="learn-more">Click to learn more!</div>
         
-        <section class="section" onclick="toggleContent('historyContent')">
+        <section class="section" onclick="toggleContent('historyContent', 'historyArrow')">
             <div class="section-title">
                 <h2>Highway History</h2>
-                <span class="arrow">▼</span>
+                <span class="arrow" id="historyArrow">▼</span>
             </div>
             <div class="content" id="historyContent">
                 <p>The Jefferson Highway is part of the history of the automobile travel in the United States. The Jefferson Highway Association was formed in 1915 to help construct ‘good roads’ creating the first north/south international highway. The Jefferson Highway traveled from Winnipeg, Canada to New Orleans, LA and was nicknamed the Pine to Palm Highway. City leaders, knowing access to this highway would potentially bring increased business and tourism, campaigned for the Jefferson Highway Association to include their city. Plattsburg, midway along the route, was chosen with construction beginning in 1916. The route of the Jefferson Highway travels down Main Street past Tinnen Town Hall’s west wall. Many towns along the Jefferson Highway are painting murals to honor the historic highway.</p>
@@ -231,10 +242,10 @@
             </div>
         </section>
 
-        <section class="section" onclick="toggleContent('artistContent')">
+        <section class="section right-align" onclick="toggleContent('artistContent', 'artistArrow')">
             <div class="section-title">
                 <h2>Mural Artist</h2>
-                <span class="arrow">▼</span>
+                <span class="arrow" id="artistArrow">▼</span>
             </div>
             <div class="content" id="artistContent">
                 <p>Daniel Bartle received his Bachelor of Fine Art in painting from the Kansas City Art Institute.</p>
