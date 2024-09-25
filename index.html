@@ -9,48 +9,48 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Montserrat', sans-serif; /* Use Montserrat font */
-            background-color: #ffffff; /* White background */
-            color: #0a0707; /* Default black text */
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #0a0707;
+            overflow-x: hidden;
         }
 
         header {
             display: flex;
-            align-items: center; /* Center logo and text vertically */
+            align-items: center;
             padding: 20px;
         }
 
         .logo {
-            width: 50px; /* Set width for the logo */
-            height: auto; /* Maintain aspect ratio */
-            margin-right: 20px; /* Space between logo and text */
+            width: 50px;
+            height: auto;
+            margin-right: 20px;
         }
 
         h1 {
-            color: #f15f38; /* Bright orange color */
+            color: #f15f38;
             font-size: 3em;
             font-weight: bold;
-            margin: 0; /* Remove default margin */
+            margin: 0;
         }
 
         main {
             position: relative;
             text-align: center;
-            max-height: 100vh; /* Ensure it doesn't exceed viewport height */
-            overflow: hidden; /* Prevent overflow */
+            max-height: 100vh;
+            overflow: hidden;
         }
 
         video {
-            max-width: 1535px; /* Set maximum width */
-            max-height: 371px; /* Set maximum height */
-            width: 100%; /* Responsive width */
-            height: 100%; /* Fit the height */
-            object-fit: cover; /* Ensure the video covers the area */
-            border: 5px solid #f15f38; /* Bright orange border */
+            max-width: 1535px;
+            max-height: 371px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 5px solid #f15f38;
             border-radius: 10px;
-            display: block; /* Remove extra space below video */
-            margin: 0 auto; /* Center the video */
+            display: block;
+            margin: 0 auto;
         }
 
         .overlay {
@@ -58,15 +58,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: Arial, sans-serif; /* Keep Arial for overlay */
-            color: #ffffff; /* White text */
+            font-family: Arial, sans-serif;
+            color: #ffffff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         h2 {
             font-size: 2.5em;
             margin: 0;
-            color: #ffffff; /* White text */
+            color: #ffffff;
         }
 
         p {
@@ -74,59 +74,55 @@
             margin: 0;
             font-weight: 600;
             letter-spacing: 1px;
-            color: #ffffff; /* White text for overlay */
+            color: #ffffff;
         }
 
         .dropdown-container {
             display: flex;
-            justify-content: space-around; /* Space between dropdowns */
+            flex-direction: column; /* Changed to column for stacking */
             padding: 40px 20px;
-            background-color: #f5f5f5; /* Light gray background */
+            background-color: #f5f5f5;
         }
 
         .section {
-            cursor: pointer; /* Change cursor to pointer */
-            position: relative; /* Position for the arrow */
+            cursor: pointer;
+            display: flex;
+            align-items: center; /* Center items vertically */
+            position: relative;
+            padding: 10px 0; /* Space between sections */
         }
 
         .section h2 {
             font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #0a0707; /* Black text */
-        }
-
-        .content {
-            display: none; /* Hidden by default */
-            font-size: 1.2em; /* Adjusted for readability */
-            line-height: 1.6; /* Better readability */
-            color: #0a0707; /* Black text for content */
-        }
-
-        .content p {
-            font-size: 1.1em; /* Slightly smaller subtext */
-            margin: 10px 0; /* Space between paragraphs */
+            margin: 0;
             color: #0a0707;
+            flex: 1; /* Allow h2 to take available space */
         }
 
         .arrow {
-            position: absolute;
-            right: -30px; /* Position arrow to the right */
-            top: 50%;
-            transform: translateY(-50%);
             font-size: 1.5em;
             color: #0a0707;
             transition: transform 0.3s;
+            margin-left: 10px; /* Space between text and arrow */
         }
 
-        .content.show + .arrow {
-            transform: translateY(-50%) rotate(180deg); /* Rotate arrow when content is visible */
+        .content {
+            display: none;
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #0a0707;
+            padding-left: 20px; /* Indentation for dropdown content */
+        }
+
+        .content.show {
+            display: block; /* Show content when toggled */
         }
 
         footer {
             text-align: center;
             padding: 20px;
             font-size: 0.9em;
-            color: #0a0707; /* Black text */
+            color: #0a0707;
         }
 
         footer p {
@@ -138,13 +134,13 @@
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5em; /* Adjust font size for smaller screens */
+                font-size: 2.5em;
             }
             h2 {
-                font-size: 2em; /* Adjust font size for smaller screens */
+                font-size: 2em;
             }
             .section p {
-                font-size: 1.2em; /* Adjust font size for smaller screens */
+                font-size: 1.2em;
             }
         }
     </style>
@@ -152,8 +148,8 @@
         function toggleContent(sectionId) {
             const content = document.getElementById(sectionId);
             const arrow = content.previousElementSibling.querySelector('.arrow');
-            content.style.display = content.style.display === "block" ? "none" : "block";
             content.classList.toggle('show');
+            content.style.display = content.classList.contains('show') ? "block" : "none";
         }
     </script>
 </head>
