@@ -77,10 +77,16 @@
             color: #ffffff; /* White text for overlay */
         }
 
-        .section {
+        .dropdown-container {
+            display: flex;
+            justify-content: space-around; /* Space between dropdowns */
             padding: 40px 20px;
             background-color: #f5f5f5; /* Light gray background */
+        }
+
+        .section {
             cursor: pointer; /* Change cursor to pointer */
+            position: relative; /* Position for the arrow */
         }
 
         .section h2 {
@@ -100,6 +106,20 @@
             font-size: 1.1em; /* Slightly smaller subtext */
             margin: 10px 0; /* Space between paragraphs */
             color: #0a0707;
+        }
+
+        .arrow {
+            position: absolute;
+            right: -30px; /* Position arrow to the right */
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            color: #0a0707;
+            transition: transform 0.3s;
+        }
+
+        .content.show + .arrow {
+            transform: translateY(-50%) rotate(180deg); /* Rotate arrow when content is visible */
         }
 
         footer {
@@ -131,7 +151,9 @@
     <script>
         function toggleContent(sectionId) {
             const content = document.getElementById(sectionId);
+            const arrow = content.previousElementSibling.querySelector('.arrow');
             content.style.display = content.style.display === "block" ? "none" : "block";
+            content.classList.toggle('show');
         }
     </script>
 </head>
@@ -154,21 +176,25 @@
         </div>
     </main>
 
-    <section class="section" onclick="toggleContent('historyContent')">
-        <h2>Highway History</h2>
-        <div class="content" id="historyContent">
-            <p>The Jefferson Highway is part of the history of the automobile travel in the United States. The Jefferson Highway Association was formed in 1915 to help construct ‘good roads’ creating the first north/south international highway. The Jefferson Highway traveled from Winnipeg, Canada to New Orleans, LA and was nicknamed the Pine to Palm Highway. City leaders, knowing access to this highway would potentially bring increased business and tourism, campaigned for the Jefferson Highway Association to include their city. Plattsburg, midway along the route, was chosen with construction beginning in 1916. The route of the Jefferson Highway travels down Main Street past Tinnen Town Hall’s west wall. Many towns along the Jefferson Highway are painting murals to honor the historic highway.</p>
-            <p>The beginning of Plattsburg’s mural project is due to the Clinton County Historical Society/Plattsburg initiative. The desire to see the highway honored was championed by Terry Wood and his wife, Lynn, members of the Jefferson Highway Association. The president of the Historical Clinton County Society, Lesli Shaver, along with her board, embraced the idea. This led to their joining forces with the Plattsburg Community Association, Somyia Finley, chair, and the Community Betterment and Arts Council, Charnette Norton, chair.</p>
-        </div>
-    </section>
+    <div class="dropdown-container">
+        <section class="section" onclick="toggleContent('historyContent')">
+            <h2>Highway History</h2>
+            <span class="arrow">▼</span>
+            <div class="content" id="historyContent">
+                <p>The Jefferson Highway is part of the history of the automobile travel in the United States. The Jefferson Highway Association was formed in 1915 to help construct ‘good roads’ creating the first north/south international highway. The Jefferson Highway traveled from Winnipeg, Canada to New Orleans, LA and was nicknamed the Pine to Palm Highway. City leaders, knowing access to this highway would potentially bring increased business and tourism, campaigned for the Jefferson Highway Association to include their city. Plattsburg, midway along the route, was chosen with construction beginning in 1916. The route of the Jefferson Highway travels down Main Street past Tinnen Town Hall’s west wall. Many towns along the Jefferson Highway are painting murals to honor the historic highway.</p>
+                <p>The beginning of Plattsburg’s mural project is due to the Clinton County Historical Society/Plattsburg initiative. The desire to see the highway honored was championed by Terry Wood and his wife, Lynn, members of the Jefferson Highway Association. The president of the Historical Clinton County Society, Lesli Shaver, along with her board, embraced the idea. This led to their joining forces with the Plattsburg Community Association, Somyia Finley, chair, and the Community Betterment and Arts Council, Charnette Norton, chair.</p>
+            </div>
+        </section>
 
-    <section class="section" onclick="toggleContent('artistContent')">
-        <h2>Mural Artist</h2>
-        <div class="content" id="artistContent">
-            <p>Daniel Bartle received his Bachelor of Fine Art in painting from the Kansas City Art Institute.</p>
-            <p>Daniel Bartle was selected due to his mural idea and reputation as an artist. He is a visual artist based in Kansas City, where he has been practicing art professionally for more than 20 years. From architectural watercolor illustration to large-scale mural painting, Bartle’s portfolio reflects an ever-striving approach to a life-long passion.</p>
-        </div>
-    </section>
+        <section class="section" onclick="toggleContent('artistContent')">
+            <h2>Mural Artist</h2>
+            <span class="arrow">▼</span>
+            <div class="content" id="artistContent">
+                <p>Daniel Bartle received his Bachelor of Fine Art in painting from the Kansas City Art Institute.</p>
+                <p>Daniel Bartle was selected due to his mural idea and reputation as an artist. He is a visual artist based in Kansas City, where he has been practicing art professionally for more than 20 years. From architectural watercolor illustration to large-scale mural painting, Bartle’s portfolio reflects an ever-striving approach to a life-long passion.</p>
+            </div>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2024 Clinton County Historical Society. All rights reserved.</p>
