@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JHWY | Landing</title>
+    <title>JHWY | Home</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -85,13 +85,13 @@
         }
 
         .learn-more {
-            text-align: center; /* Center the text */
-            font-size: 1.3em; /* Adjust font size as needed */
-            margin-bottom: 10px; /* Add some space below */
-            color: #0a0707; /* Color of the text */
-            font-weight: bold; /* Bold text */
-            text-decoration: underline; /* Underline text */
-            font-style: italic; /* Italicize text */
+            text-align: center;
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            color: #0a0707;
+            font-weight: bold;
+            text-decoration: underline;
+            font-style: italic;
         }
 
         .section {
@@ -125,25 +125,26 @@
 
         .content {
             display: none;
-            font-size: 1em; /* Slightly smaller font size for subtext */
+            font-size: 0.9em; /* Slightly smaller font size for subtext */
             line-height: 1.6;
-            color: black; /* Change subtext to black */
+            color: black;
             padding-left: 20px;
             margin-top: 10px;
-            max-height: 0; /* Start with a height of 0 */
-            overflow: hidden; /* Hide overflow */
-            transition: max-height 0.3s ease-out; /* Animation for sliding down */
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
         }
 
         .content.show {
-            display: block; /* Show content when toggled */
-            max-height: 500px; /* Set a max height for the sliding effect */
+            display: block;
+            max-height: 500px;
         }
 
         .content p {
-            color: black; /* Ensure the text is black */
-            margin-bottom: 10px; /* Space between paragraphs */
+            color: black;
+            margin-bottom: 10px;
             font-weight: 400; /* Less bold for subtext */
+            line-height: 1.4; /* Add a bit of spacing between lines */
         }
 
         footer {
@@ -217,7 +218,7 @@
     </main>
 
     <div class="dropdown-container">
-        <div class="learn-more">Click to learn more!</div> <!-- Added text -->
+        <div class="learn-more">Click to learn more!</div>
         
         <section class="section" onclick="toggleContent('historyContent')">
             <div class="section-title">
