@@ -18,14 +18,14 @@
         header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-between; /* Adjusts spacing between logo and nav */
             padding: 20px;
-            position: relative; /* Add this line */
         }
 
         .logo {
-            position: absolute; /* Change this line */
-            left: 20px; /* Align logo to the left */
+            width: 50px;
+            height: auto;
+            margin-right: 20px;
         }
 
         h1 {
@@ -225,12 +225,15 @@
 
     <header>
         <img src="logo.png" alt="Logo" class="logo">
-        <h1>Jefferson Highway Mural</h1>
+        <div>
+            <h1>Jefferson Highway Mural</h1>
+        </div>
         <nav>
-            <a href="index.html">Home</a>
+            <a href="#">Home</a> <!-- I did this since we're already on the home page, no need for it here. -->
             <a href="dedication.html">Mural Dedication</a>
         </nav>
     </header>
+    
 
     <main>
         <img src="mural.png" alt="Mural Photo" style="max-width: 784px; max-height: 205px;" class="overlay-photo">
