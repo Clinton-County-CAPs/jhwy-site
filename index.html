@@ -17,8 +17,8 @@
 
         header {
             display: flex;
-            flex-direction: column; /* Stack logo and title */
             align-items: center;
+            justify-content: space-between;
             padding: 20px;
         }
 
@@ -29,30 +29,26 @@
 
         h1 {
             color: #f15f38;
-            font-size: 2.5em; /* Adjusted for mobile */
+            font-size: 3em;
             font-weight: bold;
-            margin: 10px 0; /* Added margin for spacing */
-            text-align: center; /* Centering for mobile */
+            margin: 0;
         }
 
         nav {
             display: flex;
-            justify-content: center; /* Center the nav items */
-            flex-wrap: wrap; /* Allow wrapping on small screens */
-            margin-top: 10px;
         }
 
         nav a {
-            margin: 0 10px; /* Reduced margin for better fit */
+            margin-left: 20px;
             text-decoration: none;
             color: #0a0707;
             font-weight: bold;
-            font-size: 1em; /* Adjusted for mobile */
+            font-size: 1.1em;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: #f15f38; /* Change color on hover */
+            color: #f15f38;
         }
 
         main {
@@ -63,13 +59,12 @@
         }
 
         .overlay-photo {
-            width: 100%; /* Full width */
-            max-height: 300px; /* Adjusted for smaller screens */
-            object-fit: cover;
+            max-width: 100%;
+            height: auto;
             border: 5px solid #f15f38;
             border-radius: 10px;
             display: block;
-            margin: 20px auto; /* Centered with margin */
+            margin: 0 auto;
         }
 
         .overlay {
@@ -77,22 +72,20 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: Arial, sans-serif;
             color: #ffffff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         h2 {
-            font-size: 2em; /* Adjusted for mobile */
+            font-size: 2.5em;
             margin: 0;
             color: #ffffff;
         }
 
         p {
-            font-size: 1.2em; /* Adjusted for mobile */
+            font-size: 1.5em;
             margin: 0;
             font-weight: 600;
-            letter-spacing: 1px;
             color: #ffffff;
         }
 
@@ -129,7 +122,7 @@
         }
 
         .section h2 {
-            font-size: 2em; /* Adjusted for mobile */
+            font-size: 2.5em;
             margin: 0;
             color: #0a0707;
             flex: 1;
@@ -148,8 +141,7 @@
 
         .content {
             display: none;
-            font-size: 0.9em; /* Slightly smaller font size for subtext */
-            line-height: 1.6;
+            font-size: 0.9em;
             color: black;
             padding-left: 20px;
             margin-top: 10px;
@@ -161,13 +153,6 @@
         .content.show {
             display: block;
             max-height: 500px;
-        }
-
-        .content p {
-            color: black;
-            margin-bottom: 10px;
-            font-weight: 400; /* Less bold for subtext */
-            line-height: 1.4; /* Add a bit of spacing between lines */
         }
 
         footer {
@@ -185,20 +170,40 @@
         }
 
         @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+
             h1 {
                 font-size: 2.5em;
+                text-align: center;
+                margin: 20px 0;
             }
+
             h2 {
+                font-size: 2em;
+            }
+
+            .section h2 {
                 font-size: 1.8em;
             }
-            .section h2 {
-                font-size: 1.6em;
+
+            nav a {
+                font-size: 1em;
+                margin-left: 10px;
             }
-            .arrow {
+
+            .overlay-photo {
+                max-height: 200px;
+            }
+
+            p {
                 font-size: 1.2em;
             }
-            .section p {
-                font-size: 1em;
+
+            .learn-more {
+                font-size: 1.1em;
             }
         }
     </style>
@@ -209,15 +214,15 @@
             arrow.classList.toggle('rotate');
 
             if (content.classList.contains('show')) {
-                content.style.display = "block"; // Show block when opening
+                content.style.display = "block";
                 requestAnimationFrame(() => {
-                    content.style.maxHeight = content.scrollHeight + "px"; // Set max height to content height
+                    content.style.maxHeight = content.scrollHeight + "px";
                 });
             } else {
-                content.style.maxHeight = "0"; // Collapse back to height 0
+                content.style.maxHeight = "0";
                 setTimeout(() => {
-                    content.style.display = "none"; // Hide block after transition
-                }, 300); // Match the duration of the transition
+                    content.style.display = "none";
+                }, 300);
             }
         }
     </script>
@@ -250,8 +255,7 @@
                 <span class="arrow">▼</span>
             </div>
             <div class="content" id="historyContent">
-                <p>The Jefferson Highway is part of the history of automobile travel in the United States. The Jefferson Highway Association was formed in 1915 to help construct ‘good roads’ creating the first north/south international highway. The Jefferson Highway traveled from Winnipeg, Canada to New Orleans, LA and was nicknamed the Pine to Palm Highway. City leaders, knowing access to this highway would potentially bring increased business and tourism, campaigned for the Jefferson Highway Association to include their city. Plattsburg, midway along the route, was chosen with construction beginning in 1916. The route of the Jefferson Highway travels down Main Street past Tinnen Town Hall’s west wall. Many towns along the Jefferson Highway are painting murals to honor the historic highway.</p>
-                <p>The beginning of Plattsburg’s mural project is due to the Clinton County Historical Society/Plattsburg initiative. The desire to see the highway honored was championed by Terry Wood and his wife, Lynn, members of the Jefferson Highway Association. The president of the Historical Clinton County Society, Lesli Shaver, along with her board, embraced the idea. This led to their joining forces with the Plattsburg Community Association, Somyia Finley, chair, and the Community Betterment and Arts Council, Charnette Norton, chair.</p>
+                <p>The Jefferson Highway is part of the history of the automobile travel in the United States. The Jefferson Highway Association was formed in 1915 to help construct ‘good roads’ creating the first north/south international highway. The Jefferson Highway traveled from Winnipeg, Canada to New Orleans, LA and was nicknamed the Pine to Palm Highway...</p>
             </div>
         </section>
 
@@ -262,7 +266,6 @@
             </div>
             <div class="content" id="artistContent">
                 <p>Daniel Bartle received his Bachelor of Fine Art in painting from the Kansas City Art Institute.</p>
-                <p>Daniel Bartle was selected due to his mural idea and reputation as an artist. He is a visual artist based in Kansas City, where he has been practicing art professionally for more than 20 years. From architectural watercolor illustration to large-scale mural painting, Bartle’s portfolio reflects an ever-striving approach to a life-long passion.</p>
             </div>
         </section>
 
@@ -272,8 +275,7 @@
                 <span class="arrow">▼</span>
             </div>
             <div class="content" id="fordContent">
-                <p>In 1915, C. R. Young built this building in downtown Plattsburg (see photo below left) at the corner of Maple and Main St (Jefferson Highway) to house his auto business. Notice the ghost sign. That same year, Mr. Young served on the board of the Clinton County Jefferson Highway Association with the responsibility of raising money to "insure Clinton County stays in good standing with the Jefferson Highway Association." In 1935-1936, he sold the building to H.O. Tinnen so Mr. Tinnen could operate a Ford dealership...</p>
-                <p>The original location has since housed several businesses including a Western Auto store for several years. The current building is the Tinnen Town Hall that is used by the Plattsburg License Office for their operation. We wonder if C.R. Young ever imagined that 109 years later a Jefferson Highway mural would adorn the side of his building!</p>
+                <p>In 1915, C. R. Young built this building in downtown Plattsburg to house his auto business...</p>
             </div>
         </section>        
     </div>
