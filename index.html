@@ -18,6 +18,7 @@
         header {
             display: flex;
             align-items: center;
+            justify-content: space-between; /* Adjusts spacing between logo and nav */
             padding: 20px;
         }
 
@@ -32,6 +33,23 @@
             font-size: 3em;
             font-weight: bold;
             margin: 0;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #0a0707;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f15f38; /* Change color on hover */
         }
 
         main {
@@ -208,6 +226,10 @@
     <header>
         <img src="logo.png" alt="Logo" class="logo">
         <h1>Jefferson Highway Mural</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dedication.html">Mural Dedication</a>
+        </nav>
     </header>
 
     <main>
