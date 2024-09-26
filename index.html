@@ -123,6 +123,10 @@
             margin-left: 10px;
         }
 
+        .arrow.rotate {
+            transform: rotate(90deg);
+        }
+
         .content {
             display: none;
             font-size: 0.9em; /* Slightly smaller font size for subtext */
@@ -180,9 +184,10 @@
         }
     </style>
     <script>
-        function toggleContent(sectionId) {
+        function toggleContent(sectionId, arrow) {
             const content = document.getElementById(sectionId);
             content.classList.toggle('show');
+            arrow.classList.toggle('rotate');
 
             if (content.classList.contains('show')) {
                 content.style.display = "block"; // Show block when opening
@@ -206,11 +211,6 @@
     </header>
 
     <main>
-    <!--    <video autoplay muted loop>
-            <source src="artifice.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    -->
         <img src="mural.png" alt="Mural Photo" style="max-width: 784px; max-height: 205px;" class="overlay-photo">
         <div class="overlay">
             <h2>PLATTSBURG HISTORY</h2>
@@ -221,7 +221,7 @@
     <div class="dropdown-container">
         <div class="learn-more">Click to learn more!</div>
         
-        <section class="section" onclick="toggleContent('historyContent')">
+        <section class="section" onclick="toggleContent('historyContent', this.querySelector('.arrow'))">
             <div class="section-title">
                 <h2>Highway History</h2>
                 <span class="arrow">▼</span>
@@ -232,7 +232,7 @@
             </div>
         </section>
 
-        <section class="section" onclick="toggleContent('artistContent')">
+        <section class="section" onclick="toggleContent('artistContent', this.querySelector('.arrow'))">
             <div class="section-title">
                 <h2>Mural Artist</h2>
                 <span class="arrow">▼</span>
