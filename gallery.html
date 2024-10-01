@@ -97,6 +97,20 @@
             color: #0a0707;
         }
 
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+            gap: 20px; /* Space between images */
+            justify-items: center; /* Center images within their grid cells */
+        }
+        .gallery img {
+            width: 100%; /* Ensure images are responsive */
+            height: 250px; /* Increased height for a more zoomed-in effect */
+            object-fit: cover; /* Maintain aspect ratio, cropping if necessary */
+            border-radius: 8px; /* Optional: rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: shadow for effect */
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5em;
@@ -126,10 +140,11 @@
     </header>
     
     <main>
-        <section class="gallery">
+        <section>
             <h2>Photo Gallery</h2>
-            <img src="https://bloximages.newyork1.vip.townnews.com/kq2.com/content/tncms/assets/v3/editorial/2/7d/27dc2fd8-7e07-11ef-9a85-279e94c5116f/66f8b5c33292d.image.png?resize=1476%2C830" alt="Jefferson Highway Mural">
-            <!-- You can add more images as needed -->
+            <div class="gallery">
+                <img src="https://bloximages.newyork1.vip.townnews.com/kq2.com/content/tncms/assets/v3/editorial/2/7d/27dc2fd8-7e07-11ef-9a85-279e94c5116f/66f8b5c33292d.image.png?resize=1476,830">
+            </div>
         </section>
     </main>
 
