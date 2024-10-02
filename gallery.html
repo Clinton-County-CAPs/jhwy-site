@@ -8,8 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         html, body {
-            margin: 0; /* Ensure no margin on body and html */
-            padding: 0; /* Ensure no padding on body and html */
+            margin: 0;
+            padding: 0;
             font-family: 'Montserrat', sans-serif;
             background-color: #ffffff;
             color: #0a0707;
@@ -21,7 +21,6 @@
             align-items: center;
             justify-content: space-between;
             padding: 20px;
-            flex-wrap: wrap;
         }
 
         .logo {
@@ -43,12 +42,10 @@
             font-size: 1.5em;
             font-weight: bold;
             margin: 0;
-            flex: 1;
         }
 
         nav {
             display: flex;
-            margin-top: 10px;
         }
 
         nav a {
@@ -66,23 +63,21 @@
 
         main {
             text-align: center;
-            padding: 20px;
-            width: 100%; /* Full width for the main content */
+            padding: 20px 0; /* Adjusted padding */
         }
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 0; /* No space between images */
             padding: 0; /* Remove padding */
             margin: 0; /* Remove margin */
-            max-width: 100vw; /* Ensure no overflow */
+            width: 100vw; /* Full width */
         }
 
         .gallery img {
             width: 100%; /* Full width of grid cell */
-            height: auto; /* Maintain aspect ratio */
-            max-height: 300px; /* Limit height for uniformity */
+            height: 300px; /* Fixed height for uniformity */
             object-fit: contain; /* Ensure images are not cropped */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -93,17 +88,14 @@
             text-align: center;
             padding: 20px;
             font-size: 0.9em;
-            color: #0a0707;
         }
 
         footer p {
             font-size: 1.1em;
             margin: 0;
             font-weight: 500;
-            color: #0a0707;
         }
 
-        /* Spacer styles */
         .spacer {
             height: 20px; /* Height of the spacer */
         }
@@ -113,13 +105,8 @@
                 font-size: 2.5em;
             }
 
-            nav a {
-                margin-left: 10px;
-                font-size: 1em;
-            }
-
             .gallery img {
-                max-height: 200px; /* Adjust height for smaller screens */
+                height: auto; /* Maintain aspect ratio on smaller screens */
             }
         }
     </style>
@@ -139,7 +126,7 @@
     <main>
         <section>
             <h2>Photo Gallery</h2>
-            <p>Post a photo with #JeffersonHighwayPlattsburgMO on Facebook to be featured here!</p> <!-- Subtext -->
+            <p>Want to be featured? Post on Facebook with the hashtag #JeffersonHighwayMuralPlattsburgMO</p> <!-- Subtext -->
             <div class="spacer"></div> <!-- Spacer -->
             <div class="gallery">
                 <img src="img/dayphotoside.png" alt="Day Photo Side">
