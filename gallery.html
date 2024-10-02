@@ -67,6 +67,7 @@
         main {
             text-align: center;
             padding: 20px;
+            width: 100%; /* Full width for the main content */
         }
 
         .gallery {
@@ -100,6 +101,11 @@
             color: #0a0707;
         }
 
+        /* Spacer styles */
+        .spacer {
+            height: 20px; /* Height of the spacer */
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5em;
@@ -131,10 +137,13 @@
     <main>
         <section>
             <h2>Photo Gallery</h2>
+            <div class="spacer"></div> <!-- Spacer -->
             <div class="gallery">
                 <img src="img/dayphotoside.png" alt="Day Photo Side">
                 <img src="img/nightphoto.png" alt="Night Photo">
             </div>
+            <div class="spacer"></div> <!-- Spacer -->
+            <p>Hi</p> <!-- Subtext -->
         </section>
     </main>
 
