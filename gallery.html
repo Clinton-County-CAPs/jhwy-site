@@ -185,5 +185,137 @@
         }
     </script>
 
+    <div>
+        <style>
+            * {
+              box-sizing: border-box;
+              margin: 0;
+              padding: 0;
+            }
+        
+            body {
+              font-family: Arial, sans-serif;
+              padding: 20px;
+              background-color: #f4f4f4;
+            }
+        
+            h1 {
+              text-align: center;
+              margin-bottom: 30px;
+            }
+        
+            .gallery {
+              display: flex;
+              justify-content: center;
+              gap: 20px;
+              flex-wrap: wrap;
+            }
+        
+            .thumbnail {
+              position: relative;
+              width: 200px;
+              height: 200px;
+              overflow: hidden;
+              cursor: pointer;
+              transition: transform 0.3s ease;
+            }
+        
+            .thumbnail:hover {
+              transform: scale(1.1);
+            }
+        
+            .thumb {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+        
+            .overlay {
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0.8);
+              display: none;
+              justify-content: center;
+              align-items: center;
+              z-index: 1000;
+            }
+        
+            .overlay-content img {
+              max-width: 90%;
+              max-height: 90%;
+            }
+        
+            .overlay.active {
+              display: flex;
+            }
+        
+            .overlay-content {
+              animation: fadeIn 0.5s;
+            }
+        
+            @keyframes fadeIn {
+              from { opacity: 0; }
+              to { opacity: 1; }
+            }
+          </style>
+        </head>
+        <body>
+        
+          <h1>Expandable Gallery</h1>
+          
+          <div class="gallery">
+            <div class="thumbnail">
+              <img src="img/closeup.png" alt="Image 1" class="thumb">
+              <div class="overlay">
+                <div class="overlay-content">
+                  <img src="image1.jpg" alt="Image 1">
+                </div>
+              </div>
+            </div>
+        
+            <div class="thumbnail">
+              <img src="image2.jpg" alt="Image 2" class="thumb">
+              <div class="overlay">
+                <div class="overlay-content">
+                  <img src="image2.jpg" alt="Image 2">
+                </div>
+              </div>
+            </div>
+        
+            <div class="thumbnail">
+              <img src="image3.jpg" alt="Image 3" class="thumb">
+              <div class="overlay">
+                <div class="overlay-content">
+                  <img src="image3.jpg" alt="Image 3">
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <script>
+            // Get all thumbnails
+            const thumbnails = document.querySelectorAll('.thumbnail');
+        
+            // Loop through each thumbnail and add event listener
+            thumbnails.forEach(thumbnail => {
+              const overlay = thumbnail.querySelector('.overlay');
+        
+              // Add click event to show overlay
+              thumbnail.addEventListener('click', () => {
+                overlay.classList.add('active');
+              });
+        
+              // Add click event to close overlay when clicked
+              overlay.addEventListener('click', () => {
+                overlay.classList.remove('active');
+              });
+            });
+          </script>
+        </body>
+    </div>
+
 </body>
 </html>
