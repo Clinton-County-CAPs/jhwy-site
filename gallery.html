@@ -7,8 +7,9 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
+        html, body {
+            margin: 0; /* Ensure no margin on body and html */
+            padding: 0; /* Ensure no padding on body and html */
             font-family: 'Montserrat', sans-serif;
             background-color: #ffffff;
             color: #0a0707;
@@ -79,11 +80,10 @@
         .gallery img {
             width: 100%; /* Full width of grid cell */
             height: auto; /* Maintain aspect ratio */
-            max-height: 300px; /* Limit height to maintain uniformity */
+            max-height: 300px; /* Limit height for uniformity */
             object-fit: contain; /* Ensure images are not cropped */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 0; /* Remove margin around images */
         }
 
         footer {
