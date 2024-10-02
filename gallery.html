@@ -71,16 +71,16 @@
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-            gap: 0; /* Remove space between images */
-            justify-items: center; /* Center images within their grid cells */
+            gap: 0; /* No space between images */
             padding: 0; /* Remove padding */
             margin: 0; /* Remove margin */
         }
 
         .gallery img {
-            width: 45%; /* Full width of grid cell */
-            height: 200px; /* Fixed height for uniformity */
-            object-fit: contain; /* Maintain aspect ratio without cropping */
+            width: 100%; /* Full width of grid cell */
+            height: auto; /* Maintain aspect ratio */
+            max-height: 300px; /* Limit height to maintain uniformity */
+            object-fit: contain; /* Ensure images are not cropped */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             margin: 0; /* Remove margin around images */
@@ -111,7 +111,7 @@
             }
 
             .gallery img {
-                height: auto; /* Maintain aspect ratio on smaller screens */
+                max-height: 200px; /* Adjust height for smaller screens */
             }
         }
     </style>
