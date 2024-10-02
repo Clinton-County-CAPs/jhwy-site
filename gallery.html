@@ -66,6 +66,14 @@
             padding: 20px 0;
         }
 
+        .section-gall {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content */
+            width: 98%;
+            margin: 0 auto; /* Center the section */
+        }
+
         .gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr); /* Two photos per row */
@@ -131,11 +139,6 @@
             font-size: 40px;
             font-weight: bold;
             cursor: pointer;
-        }
-
-        .section-gall {
-            align-items: center;
-            width: 98%;
         }
 
         @media (max-width: 768px) {
