@@ -68,7 +68,7 @@
 
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, 1fr); /* Two photos per row */
             gap: 10px; /* Space between images */
             padding: 0; /* Remove padding */
             margin: 0; /* Remove margin */
@@ -129,6 +129,10 @@
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5em;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(1, 1fr); /* One photo per row on smaller screens */
             }
         }
     </style>
