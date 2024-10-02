@@ -78,10 +78,15 @@
         .gallery img {
             width: 100%; /* Full width of grid cell */
             height: 150px; /* Fixed height for smaller initial display */
-            object-fit: cover; /* Fill the space without cropping */
+            object-fit: contain; /* Maintain aspect ratio without cropping */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             cursor: pointer; /* Pointer cursor for clickable images */
+            transition: transform 0.3s; /* Smooth transition for hover effect */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05); /* Slightly enlarge the image on hover */
         }
 
         footer {
