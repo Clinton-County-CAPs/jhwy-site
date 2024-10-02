@@ -63,7 +63,7 @@
 
         main {
             text-align: center;
-            padding: 20px 0; /* Adjusted padding */
+            padding: 20px 0;
         }
 
         .gallery {
@@ -77,11 +77,12 @@
 
         .gallery img {
             width: 100%; /* Full width of grid cell */
-            height: auto; /* Fixed height for uniformity */
+            height: auto; /* Maintain aspect ratio */
             object-fit: cover; /* Fill the space without cropping */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            margin: 10px; /* Remove margin around images */
+            cursor: pointer; /* Pointer cursor for clickable images */
+            margin: 10px; /* Margin around images */
         }
 
         footer {
@@ -100,13 +101,39 @@
             height: 20px; /* Height of the spacer */
         }
 
+        /* Modal styles */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5em;
-            }
-
-            .gallery img {
-                height: auto; /* Maintain aspect ratio on smaller screens */
             }
         }
     </style>
@@ -126,21 +153,37 @@
     <main>
         <section>
             <h2>Photo Gallery</h2>
-            <p>Want to be featured? Post on Facebook with the hashtag #JeffersonHighwayMuralPlattsburgMO</p> <!-- Subtext -->
-            <div class="spacer"></div> <!-- Spacer -->
+            <p>Want to be featured? Post on Facebook with the hashtag #JeffersonHighwayMuralPlattsburgMO</p>
+            <div class="spacer"></div>
             <div class="gallery">
-                <img src="img/jhwysign.png" alt="Person holding a sign">
-                <img src="img/nightphoto.png" alt="Night Photo">
-                <img src="img/closeup.png" alt="Closeup">
-                <img src="img/ribbon.png" alt="Ribbon">
-                <img src="img/modeltfamily.png" alt="Model T Gathering">
+                <img src="img/jhwysign.png" alt="Person holding a sign" onclick="openModal(this.src)">
+                <img src="img/nightphoto.png" alt="Night Photo" onclick="openModal(this.src)">
+                <img src="img/closeup.png" alt="Closeup" onclick="openModal(this.src)">
+                <img src="img/ribbon.png" alt="Ribbon" onclick="openModal(this.src)">
+                <img src="img/modeltfamily.png" alt="Model T Gathering" onclick="openModal(this.src)">
             </div>
         </section>
     </main>
 
+    <div class="modal" id="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="Expanded Image">
+    </div>
+
     <footer>
         <p>&copy; 2024 Clinton County Historical Society. All rights reserved.</p>
     </footer>
+
+    <script>
+        function openModal(src) {
+            document.getElementById('modalImage').src = src;
+            document.getElementById('modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
