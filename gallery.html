@@ -46,6 +46,8 @@
 
         nav {
             display: flex;
+            flex-wrap: wrap; /* Allow nav items to wrap */
+            margin-left: auto; /* Push nav items to the right */
         }
 
         nav a {
@@ -146,6 +148,10 @@
                 font-size: 2.5em;
             }
 
+            nav {
+                justify-content: center; /* Center nav items on smaller screens */
+            }
+
             .gallery {
                 grid-template-columns: repeat(1, 1fr); /* One photo per row on smaller screens */
             }
@@ -172,6 +178,7 @@
         <section class="section-gall">
             <h2>Photo Gallery</h2>
             <p>Want to be featured? Post on Facebook with the hashtag #JeffersonHighwayMuralPlattsburgMO</p>
+            <p>Click to enlarge an image!</p>
             <div class="gallery">
                 <img src="img/jhwysign.png" alt="Person holding a sign" onclick="openModal(this.src)">
                 <img src="img/nightphoto.png" alt="Night Photo" onclick="openModal(this.src)">
