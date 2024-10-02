@@ -18,15 +18,15 @@
 
         header {
             display: flex;
-            flex-direction: column; /* Stack items vertically */
-            align-items: center; /* Center items */
+            align-items: center;
+            justify-content: space-between;
             padding: 20px;
         }
 
         .logo {
             width: 50px;
             height: auto;
-            margin-bottom: 10px; /* Space between logo and title */
+            margin-right: 20px;
         }
 
         h1 {
@@ -34,6 +34,7 @@
             font-size: 3em;
             font-weight: bold;
             margin: 0;
+            flex: 1;
         }
 
         h2 {
@@ -46,8 +47,6 @@
         nav {
             display: flex;
             margin-top: 10px;
-            justify-content: center; /* Center nav items */
-            flex-wrap: wrap; /* Allow nav items to wrap */
         }
 
         nav a {
@@ -143,9 +142,21 @@
             cursor: pointer;
         }
 
+        /* Responsive styles */
         @media (max-width: 768px) {
+            header {
+                flex-direction: column; /* Stack items vertically on mobile */
+                align-items: center; /* Center items */
+            }
+
             h1 {
                 font-size: 2.5em;
+            }
+
+            nav {
+                justify-content: center; /* Center nav items on smaller screens */
+                flex-wrap: wrap; /* Allow nav items to wrap */
+                margin-top: 10px; /* Space between header and nav */
             }
 
             .gallery {
