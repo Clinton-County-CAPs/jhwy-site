@@ -37,7 +37,7 @@
             flex: 1;
         }
 
-      	h2 {
+        h2 {
             color: #f15f38;
             font-size: 1.5em;
             font-weight: bold;
@@ -69,16 +69,16 @@
         }
 
         .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+            gap: 10px; /* Reduced space between images */
+            justify-items: center; /* Center images within their grid cells */
         }
 
         .gallery img {
-            width: 100%;
-            max-width: 300px; /* Set a max width for images */
-            margin: 10px;
+            width: 300px; /* Set a fixed width for images */
+            height: 200px; /* Set a fixed height for images */
+            object-fit: cover; /* Ensures images cover the set dimensions without distortion */
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -97,21 +97,6 @@
             color: #0a0707;
         }
 
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
-            gap: 20px; /* Space between images */
-            justify-items: center; /* Center images within their grid cells */
-        }
-        .gallery img {
-            width: auto; /* Change to auto for better quality */
-            max-width: 80%; /* Reduce the max width */
-            height: auto; /* Maintain aspect ratio */
-            transform: scale(0.98); /* Slightly smaller scale */
-        }
-
-
-
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5em;
@@ -123,7 +108,8 @@
             }
 
             .gallery img {
-                max-width: 90%; /* Responsive image width on mobile */
+                width: 90%; /* Responsive image width on mobile */
+                height: auto; /* Maintain aspect ratio on smaller screens */
             }
         }
     </style>
@@ -144,8 +130,8 @@
         <section>
             <h2>Photo Gallery</h2>
             <div class="gallery">
-                <img src="img/dayphotoside.png">
-                <img src="img/nightphoto.png">
+                <img src="img/dayphotoside.png" alt="Day Photo Side">
+                <img src="img/nightphoto.png" alt="Night Photo">
             </div>
         </section>
     </main>
