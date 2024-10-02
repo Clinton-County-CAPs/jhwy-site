@@ -18,15 +18,15 @@
 
         header {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items */
             padding: 20px;
         }
 
         .logo {
             width: 50px;
             height: auto;
-            margin-right: 20px;
+            margin-bottom: 10px; /* Space between logo and title */
         }
 
         h1 {
@@ -34,7 +34,6 @@
             font-size: 3em;
             font-weight: bold;
             margin: 0;
-            flex: 1;
         }
 
         h2 {
@@ -47,6 +46,8 @@
         nav {
             display: flex;
             margin-top: 10px;
+            justify-content: center; /* Center nav items */
+            flex-wrap: wrap; /* Allow nav items to wrap */
         }
 
         nav a {
@@ -147,10 +148,6 @@
                 font-size: 2.5em;
             }
 
-            nav {
-                justify-content: center; /* Center nav items on smaller screens */
-            }
-
             .gallery {
                 grid-template-columns: repeat(1, 1fr); /* One photo per row on smaller screens */
             }
@@ -169,6 +166,7 @@
         <nav>
             <a href="index.html">Home</a>
             <a href="kq2.html">KQ2 Coverage</a>
+            <a href="gallery.html">Gallery</a>
         </nav>
     </header>
     
