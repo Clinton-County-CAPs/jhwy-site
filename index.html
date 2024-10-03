@@ -47,14 +47,18 @@
             font-weight: bold;
             font-size: 1.1em;
             transition: color 0.3s, border 0.3s;
-            border: 2px solid transparent;
-            padding: 5px 10px;
+            border: 2px solid transparent; /* Keep this for the hover effect */
+            padding: 10px 15px; /* Add padding for a button-like appearance */
+            border-radius: 5px; /* Optional: rounded corners */
+            background-color: transparent; /* Background color for the button */
         }
 
         nav a:hover {
             color: #f15f38;
-            border-color: #f15f38;
+            border-color: #f15f38; /* Show border color on hover */
+            background-color: rgba(241, 95, 56, 0.1); /* Optional: light background on hover */
         }
+
 
         main {
             position: relative;
