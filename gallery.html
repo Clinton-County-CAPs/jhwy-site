@@ -46,18 +46,21 @@
 
         nav {
             display: flex;
+            justify-content: center; /* Center nav items */
+            align-items: center; /* Align items vertically */
+            flex-wrap: wrap; /* Allow items to wrap on smaller screens */
             margin-top: 10px;
         }
 
         nav a {
-            margin-left: 20px;
+            margin: 5px; /* Smaller margin for compactness */
             text-decoration: none;
             color: #0a0707;
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1em; /* Slightly smaller font size */
             border: 2px solid #f15f38; /* Show border color by default */
-            padding: 10px 15px; /* Add padding for a button-like appearance */
-            border-radius: 5px; /* Optional: rounded corners */
+            padding: 8px 12px; /* Adjust padding for smaller screens */
+            border-radius: 5px; /* Rounded corners */
             background-color: transparent; /* Background color for the button */
             transition: color 0.3s, background-color 0.3s; /* Transition for color and background */
         }
