@@ -31,11 +31,10 @@
             color: #f15f38;
             font-size: 3em;
             font-weight: bold;
-            margin: 0 20px; /* Add margin to the left and right */
-            flex: 1; /* Allow flex-grow */
-            text-align: left; /* Align text to the left */
+            margin: 0 20px;
+            flex: 1;
+            text-align: left;
         }
-
 
         nav {
             display: flex;
@@ -47,32 +46,33 @@
             color: #0a0707;
             font-weight: bold;
             font-size: 1.1em;
-            transition: color 0.3s;
+            transition: color 0.3s, border 0.3s;
+            border: 2px solid transparent;
+            padding: 5px 10px;
         }
 
         nav a:hover {
             color: #f15f38;
+            border-color: #f15f38;
         }
 
         main {
             position: relative;
-            text-align: left; /* Align text to the left */
+            text-align: left;
             max-height: 100vh;
             overflow: hidden;
-            padding: 20px; /* Add some padding for better layout */
+            padding: 20px;
         }
 
         .overlay-photo {
             width: 98%;
-            height: 30vh; /* Set height to 80% of the viewport height */
-            object-fit: cover; /* Ensures the video covers the entire area */
+            height: 30vh;
+            object-fit: cover;
             border: 6px solid #f15f38;
             border-radius: 10px;
             display: block;
             margin: 0 auto;
-            overflow: hidden; /* Hide any overflow */
         }
-
 
         .overlay {
             position: absolute;
@@ -81,7 +81,7 @@
             transform: translate(-50%, -50%);
             color: #ffffff;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            text-align: center; /* Center overlay text */
+            text-align: center;
         }
 
         h2 {
@@ -165,9 +165,8 @@
         }
 
         .content p {
-            color: black; /* Set text color for paragraphs inside the content */
+            color: black;
         }
-
 
         footer {
             text-align: center;
@@ -223,7 +222,7 @@
 
         @media (max-width: 768px) {
             .overlay {
-                display: none; /* Hide the overlay */
+                display: none;
             }
         }
 
@@ -246,6 +245,20 @@
                 }, 300);
             }
         }
+
+        // Function to detect mobile devices
+        function isMobile() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        window.onload = function() {
+            if (isMobile()) {
+                const video = document.querySelector('.overlay-photo');
+                video.autoplay = true; // Ensure autoplay
+                video.muted = true; // Ensure muted for autoplay on mobile
+                video.load(); // Reload video for mobile
+            }
+        };
     </script>
 </head>
 <body>
@@ -261,7 +274,7 @@
     </header>
 
     <main>
-        <video class="overlay-photo" autoplay muted loop>
+        <video class="overlay-photo" autoplay muted loop playsinline>
             <source src="img/drone.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
